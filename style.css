@@ -1,0 +1,118 @@
+body,
+ul,
+h2,
+p {
+  margin: 0; /*바깥쪽 여백*/
+  padding: 0; /*안쪽 여백*/
+}
+
+li {
+  list-style-type: none;
+}
+
+body {
+  background-color: #111;
+  color: #999;
+}
+
+/* 전체를 감싸는 부분 */
+.wrapper {
+  display: flex; /*컨텐츠 크기만큼*/
+  height: 100vh; /*맨 위부터 끝까지 길이*/
+  justify-content: center; /*가운데로*/
+  align-items: center; /*세로에서 중간*/
+}
+
+/* 그 안에 있는 부분 */
+.team {
+  display: flex; /*수직으로 배열*/
+  justify-content: center;
+  align-items: center; /*새로 기준점으로 설정*/
+}
+
+.team-item {
+  flex-basis: 100px;
+  flex-shrink: 0; /*크기가 수축되지 않게 함*/
+  margin: 0 10px;
+  transition: all 0.4s; /*애니메이션효과, 
+  변화되는 것을 시간의 흐름을 줘서 변화시키는 과정*/
+}
+
+/*hover 했을 때 커지는 효과*/
+.team-item:hover {
+  flex-basis: 140px;
+  margin: 0 20px;
+}
+
+.team-item img {
+  width: 100%;
+}
+
+.team-item:hover .profile-contents p {
+  max-height: 200px;
+}
+
+.profile {
+  background-color: #222;
+  position: relative; /*상대위치*/
+  overflow: hidden;
+}
+
+/*그라데이션
+Ultimate CSS Gradient Generator*/
+.profile:before {
+  /*가상요소. 
+    꾸밈을 위해 의미없는 태그를 추가할때
+    before은 해당 태그의 앞에 놓여진다.*/
+  content: " ";
+  position: absolute; /*절대위치*/
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 200px;
+
+  /* Permalink - use to edit and share this gradient: https://colorzilla.com/gradient-editor/#000000+0,000000+100&0+0,0.95+100 */
+  background: -moz-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  ); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0) 0%,
+    rgba(0, 0, 0, 0.95) 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00000000', endColorstr='#f2000000',GradientType=0 ); /* IE6-9 */
+}
+
+.profile-contents {
+  position: absolute;
+  left: 0;
+  bottom: 0; /*바닥면 맞춤*/
+  padding: 10px;
+  color: white;
+}
+
+.profile-contents h2 {
+  font-size: 20px;
+}
+
+.profile-contents h2 span {
+  display: block;
+  font-size: 12px;
+}
+
+.profile-contents p {
+  color: white;
+  font-size: 10px;
+  min-width: 120px;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.4s;
+  transition-delay: 0.8s;
+}
